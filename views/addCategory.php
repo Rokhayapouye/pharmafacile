@@ -16,7 +16,7 @@
                 <input type="text" class="form-control" name="nom" required>
             </div>
             <?php if(isset($c)): ?>
-                <button type="submit" name="modifier" class="btn mt-3 btn-warning-success">Modifier</button>
+                <button type="submit" name="modifier" class="btn mt-3 btn-warning">Modifier</button>
             <?php else: ?>
                 <button type="submit" name="ajouter" class="btn mt-3 btn-outline-success">Ajouter</button>
             <?php endif; ?>

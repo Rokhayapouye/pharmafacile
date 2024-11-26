@@ -33,12 +33,6 @@ CREATE TABLE `categories` (
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `categories`
---
-
-INSERT INTO `categories` (`id`, `nom`, `image`) VALUES
-(3, 'comprimé', '6744af90e8ee9jpg');
 
 -- --------------------------------------------------------
 
@@ -77,9 +71,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `mdp`, `role`) VALUES
-(4, 'Rokhaya', 'Pouye', 'pouyerokhaya53@gmail.com', '$2y$10$fVCI51kY/uGNeTRCA1HsTO93t.1A2W3QCdBXOBK4a3mG2cEiPCJ0K', 'admin'),
-(5, 'Mamadou', 'Ndiaye', 'juniorndiaye@gmail.com', '$2y$10$m0abcyqeQWkh8kAJRfT0n.XnhMiKL1Q4U/ONBpTBCPlnioRb0kgUq', 'user'),
-(6, 'yony', 'gueye', 'ygueye@gmail.com', '$2y$10$cH67NRcJmDSAt.Eh6uAIxuESmNXuqFBAttw7QMJuCDgDAVFZQGZui', 'user');
+(4, 'Rokhaya', 'Pouye', 'pouyerokhaya53@gmail.com', '$2y$10$fVCI51kY/uGNeTRCA1HsTO93t.1A2W3QCdBXOBK4a3mG2cEiPCJ0K', 'admin');
 
 --
 -- Index pour les tables déchargées
