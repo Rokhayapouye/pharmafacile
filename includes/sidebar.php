@@ -46,11 +46,11 @@
                 </li>
                 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="?page=utilisateurs" aria-expanded="false">
+                    <a class="sidebar-link" href="?page=admin" aria-expanded="false">
                         <span>
                             <i class="icon ti ti-users"style="font-size: 1.5rem;"></i>
                         </span>
-                        <span class="hide-menu">Utilisateurs</span>
+                        <span class="hide-menu">Admins</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

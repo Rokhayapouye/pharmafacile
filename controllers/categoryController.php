@@ -10,6 +10,22 @@ if (isset($_POST["ajouter"])) {
    }
 }
 
+if (isset($_POST["modifier"])) {
+    extract($_POST);
+    $c = recupererUneCategorie($_GET["id"]);
+
+    if ($_FILES["image"]["size"] > 0) {
+        $img = $_FILES["image"]["tmp_name"];
+        $img_name = uniqid()."jpg";
+        move_uploaded_file($img, "images/".$img_name);
+    }else{
+        $img_name = $c->image;
+    }
+    if (editCategorie($_GET["id"], $nom, $img_name)) {
+     header("location:?page=category");
+    }
+ }
+
 if (isset($_GET["idcategory"])) {
    if (supprimerUneCategorie($_GET["idcategory"])) {
     header("Location:?page=category");
