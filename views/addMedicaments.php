@@ -1,9 +1,9 @@
 <div class="container">
     <div class="card">
         <div class="card-header row">
-            <h1 class="col-md-10">Formulaire d'<?= isset($c) ? "edition" : "Ajout" ?> Categorie</h1>
+            <h1 class="col-md-10">Formulaire d'<?= isset($c) ? "edition" : "Ajout" ?> Medicament</h1>
             <div class="col-md-2 text-end">
-                <a href="?page=category" class="btn btn-info">Retour</a>
+                <a href="?page=medicaments" class="btn btn-info">Retour</a>
             </div>
         </div>
         <form action="" method="post" enctype="multipart/form-data">

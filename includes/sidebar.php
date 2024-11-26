@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="?page=plats" aria-expanded="false">
+                    <a class="sidebar-link" href="?page=medicaments" aria-expanded="false">
                         <span>
                         <!-- <i class="bi bi-cup-straw" style="font-size: 1.5rem;"></i> -->
                         <i class="icon ti ti-cup" style="font-size: 1.5rem;"></i>

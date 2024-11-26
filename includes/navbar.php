@@ -24,10 +24,10 @@
                 <li class="has-children">
                   <a href="?page=produits">Produits</a>
                   <ul class="dropdown">
-                    <li><a href="?page=supplements">Santé &amp; Bien Etre</a></li>
-                    <li><a href="?page=vitamine">Maternité &amp; Bébé</a></li>
-                    <li><a href="?page=nutrition">Produits pour Gestion du Poids</a></li>
-                    <li><a href="?page=the">  </a></li>
+                    <li><a href="?page=bienetre">Santé &amp; Bien Etre</a></li>
+                    <li><a href="?page=maternite">Maternité &amp; Bébé</a></li>
+                    <li><a href="?page=poids">Produits pour Gestion du Poids</a></li>
+                    <li><a href="?page=materiel">Materiel Medical & Dispositif de Santé  </a></li>
                     
                   </ul>
                 </li>

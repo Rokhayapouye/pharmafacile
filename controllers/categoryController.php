@@ -10,6 +10,13 @@ if (isset($_POST["ajouter"])) {
    }
 }
 
+if (isset($_GET["idcategory"])) {
+   if (supprimerUneCategorie($_GET["idcategory"])) {
+    header("Location:?page=category");
+    exit();
+   }
+}
+
 
 
 

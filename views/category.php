@@ -22,14 +22,14 @@
                             <td><?= $c->nom ?></td>
                             <td>
                                 <a href="?page=category&type=edit&id=<?= $c->id?>" class="btn btn-primary">Editer</a>
-                                <a href="?page=category&type=delete&id=<?= $c->id?>" data-bs-toggle="modal" data-bs-target="#my-modal" class="btn btn-danger">Supprimer</a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#my-modal<?= $c->id ?>" class="btn btn-danger">Supprimer</a>
                                
-                                <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+                                <div id="my-modal<?= $c->id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="my-modal-title">Suppression</h5>
-                                                <button class="close" data-bs-dismiss="modal"  aria-label="Close">
+                                                <button class="close"  aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -37,8 +37,10 @@
                                                 <p>Êtes-vous sûr de vouloir supprimer ?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="btn btn-success">OUI</button>
-                                                <button class="btn btn-danger">NON</button>
+                                                <a href="?page=category&idcategory=<?= $c->id ?>" class="btn btn-success">Oui</a>
+                                                <a href="" class="btn btn-danger" data-bs-dismiss="modal" >Non</a>
+                                                
+                                                <div class="modal-footer">
                                             </div>
                                         </div>
                                     </div>

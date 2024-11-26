@@ -77,4 +77,13 @@ function recupererUneCategorie($id)
     }
 }
 
-?>
+function supprimerUneCategorie($id){
+    global $db;
+    try {
+        $q = $db->prepare("DELETE FROM categories WHERE id=:id");
+        return $q->execute(["id" => $id]);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+

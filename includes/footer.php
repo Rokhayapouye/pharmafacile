@@ -1,5 +1,5 @@
 <div class="py-6 px-6 text-center">
-    <p class="mb-0 fs-4"> <?php echo 'Oumar.Dev &copy; 2023 - '.date('Y').'. Tous droits réservés.'; ?> <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"
+    <p class="mb-0 fs-4"> <?php echo 'RokhyDev &copy; 2024. Tous droits réservés.'; ?> <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"
             class="pe-1 text-primary text-decoration-underline"></a></p>
 </div>
 
