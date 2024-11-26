@@ -17,6 +17,9 @@ if (isset($_GET["page"])) {
         case 'medicaments';
         require_once("controllers/medicamentsController.php");
         break;
+        case 'admin';
+        require_once("controllers/adminController.php");
+        break;
         case 'category';
         require_once("controllers/categoryController.php");
         break;

@@ -19,14 +19,55 @@ function seconnecter($email)
     }
 }
 
-function CreerUnCompte($prenom, $nom, $email, $mdp, $role)
+function recupererUnUtilisateur($id)
 {
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO users VALUES (null, :prenom, :nom  ,:email, :mdp, :role)");
+        $q = $db->prepare("SELECT * FROM users WHERE id=:id");
+        $q->execute(["id" => $id]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
+function recupererTousLesAdmins()
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM users WHERE role=:role");
+        $q->execute(["role" => "admin"]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
+function recupererTousLesClients()
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM users WHERE role=:role");
+        $q->execute(["role" => "admin"]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
+function CreerUnCompte($prenom, $nom,$tel, $adresse, $email, $mdp, $role)
+{
+    global $db;
+    try {
+        $q = $db->prepare("INSERT INTO users VALUES (null, :prenom, :nom, :tel, :adresse,:email, :mdp, :role)");
         return $q->execute([
             "prenom" => $prenom,
             "nom" => $nom,
+            "tel" => $tel,
+            "adresse" => $adresse,
             "email" => $email,
             "mdp" => $mdp,
             "role" => $role
@@ -35,6 +76,35 @@ function CreerUnCompte($prenom, $nom, $email, $mdp, $role)
         ]);
     } catch (PDOException $th) {
         die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
+function modifierUnUtilisateur($id, $prenom, $nom,$tel, $adresse, $email)
+{
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE users SET prenom =:prenom, nom =:nom, tel =:tel, adresse =:adresse, email =:email
+                            WHERE id =:id");
+        return $q->execute([
+            "prenom" => $prenom,
+            "nom" => $nom,
+            "tel" => $tel,
+            "adresse" => $adresse,
+            "email" => $email,
+            "id" => $id
+        ]);
+    } catch (PDOException $th) {
+        die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
+function supprimerUnUtilisateur($id){
+    global $db;
+    try {
+        $q = $db->prepare("DELETE FROM users WHERE id=:id");
+        return $q->execute(["id" => $id]);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
     }
 }
 
@@ -135,6 +205,20 @@ function supprimerUnMedicament($id){
     try {
         $q = $db->prepare("DELETE FROM medicaments WHERE id=:id");
         return $q->execute(["id" => $id]);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+
+function editCategorie($id, $nom, $image){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE categories SET nom =:nom, image =:image WHERE id=:id");
+        return $q->execute([
+            "nom" => $nom,
+            "id" => $id,
+            "image" => $image
+        ]);
     } catch (PDOException $th) {
         die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
     }

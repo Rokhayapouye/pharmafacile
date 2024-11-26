@@ -17,6 +17,14 @@
                 <label for="">Nom</label>
                 <input type="text" name="nom" class="form-control" required>
             </div>
+            <div class="form-froup mt-3 col-md-6">
+                <label for="">Telephone</label>
+                <input type="text" name="tel" class="form-control" required>
+            </div>
+            <div class="form-froup mt-3 col-md-6">
+                <label for="">Adresse</label>
+                <input type="text" name="adresse" class="form-control" required>
+            </div>
             <div class="form-froup col-md-6">
                 <label for="">Email</label>
                 <input type="email" name="email" class="form-control" required>
@@ -25,10 +33,7 @@
                 <label for="">Mot de passe</label>
                 <input type="password" name="mdp" class="form-control" required>
             </div>
-            <div class="form-froup mt-3 col-md-6">
-                <label for="">Role</label>
-                <input type="text" name="role" class="form-control" required>
-            </div>
+            
         </div>
         <button type="submit" class="btn btn-success mt-3 r" name="inscrire">Creer</button>
         <a href="?page=connexion" class="mt-3 btn btn-success">Connexion</a>
