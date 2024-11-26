@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 26 nov. 2024 à 12:10
+-- Généré le : mar. 26 nov. 2024 à 14:01
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -33,6 +33,12 @@ CREATE TABLE `categories` (
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `nom`, `image`) VALUES
+(5, 'medicament', '6745b2fbca068jpg');
 
 -- --------------------------------------------------------
 
@@ -61,6 +67,8 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `nom` varchar(30) NOT NULL,
+  `tel` varchar(15) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
   `role` varchar(30) NOT NULL
@@ -70,8 +78,8 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `prenom`, `nom`, `email`, `mdp`, `role`) VALUES
-(4, 'Rokhaya', 'Pouye', 'pouyerokhaya53@gmail.com', '$2y$10$fVCI51kY/uGNeTRCA1HsTO93t.1A2W3QCdBXOBK4a3mG2cEiPCJ0K', 'admin');
+INSERT INTO `users` (`id`, `prenom`, `nom`, `tel`, `adresse`, `email`, `mdp`, `role`) VALUES
+(4, 'Rokhaya', 'Pouye', '778768565', 'Rufisque', 'pouyerokhaya53@gmail.com', '$2y$10$fVCI51kY/uGNeTRCA1HsTO93t.1A2W3QCdBXOBK4a3mG2cEiPCJ0K', 'admin');
 
 --
 -- Index pour les tables déchargées
@@ -103,7 +111,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `medicaments`
