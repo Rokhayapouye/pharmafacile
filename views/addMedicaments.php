@@ -15,6 +15,23 @@
                 <label for="">Nom</label>
                 <input type="text" class="form-control" name="nom" required>
             </div>
+            
+            <div class="form-group">
+                <label for="">Prix</label>
+                <input type="number" class="form-control" name="prix" required>
+            </div><div class="form-group">
+                <label for="">Disponibilité</label>
+                <input type="text" class="form-control" name="disponibilite" required>
+            </div><div class="form-group">
+                <label for="">Qtestock</label>
+                <input type="number" class="form-control" name="qtestock" required>
+            </div><div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control" name="description" required>
+            </div><div class="form-group">
+                <label for="">Peremption</label>
+                <input type="date" class="form-control" name="peremption" required>
+            </div>
             <?php if(isset($c)): ?>
                 <button type="submit" name="modifier" class="btn mt-3 btn-warning-success">Modifier</button>
             <?php else: ?>
@@ -22,4 +39,4 @@
             <?php endif; ?>
         </form>
     </div>
-</div>
+</div> 
