@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 26 nov. 2024 à 14:01
+-- Généré le : mer. 27 nov. 2024 à 12:43
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -38,7 +38,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `nom`, `image`) VALUES
-(5, 'medicament', '6745b2fbca068jpg');
+(5, 'Santé & Bien Etre', '6745b2fbca068jpg'),
+(6, 'Maternité & Bébé', '6746ea5367890jpg'),
+(7, 'Produits pour Gestion du Poids', '6746ea6a6d3c5jpg'),
+(8, 'Materiel Medical & Dispositif de Santé', '6746ea84afe6cjpg');
 
 -- --------------------------------------------------------
 
@@ -54,7 +57,22 @@ CREATE TABLE `medicaments` (
   `disponibilite` varchar(255) NOT NULL,
   `qtestock` int(11) NOT NULL,
   `description` text NOT NULL,
-  `peremption` date NOT NULL
+  `peremption` date NOT NULL,
+  `idcategorie` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `panier`
+--
+
+CREATE TABLE `panier` (
+  `id` int(11) NOT NULL,
+  `idmedicament` int(11) NOT NULL,
+  `nombre` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,6 +98,33 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `tel`, `adresse`, `email`, `mdp`, `role`) VALUES
 (4, 'Rokhaya', 'Pouye', '778768565', 'Rufisque', 'pouyerokhaya53@gmail.com', '$2y$10$fVCI51kY/uGNeTRCA1HsTO93t.1A2W3QCdBXOBK4a3mG2cEiPCJ0K', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vente`
+--
+
+CREATE TABLE `vente` (
+  `id` int(11) NOT NULL,
+  `ref` varchar(255) NOT NULL,
+  `montant` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `venteitems`
+--
+
+CREATE TABLE `venteitems` (
+  `id` int(11) NOT NULL,
+  `idmedicament` int(11) NOT NULL,
+  `nombre` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `idvente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Index pour les tables déchargées
@@ -111,13 +156,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `medicaments`
 --
 ALTER TABLE `medicaments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`

@@ -84,34 +84,16 @@
         <div class="row">
           <div class="col-md-12 block-3 products-wrap">
             <div class="nonloop-block-3 owl-carousel">
-
-              <div class="text-center item mb-4 item-v2">
-                <span class="onsale">Sale</span>
-                <a href="?page=shop-single"> <img src="assets/images/product_03.jpeg" alt="Image"></a>
-                <h3 class="text-dark"><a href="?page=shop-single">Azicure</a></h3>
-                <p class="price">1950fcfa</p>
-              </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <a href="?page=shop-single"> <img src="assets/images/product_01.jpeg" alt="Image"></a>
-                <h3 class="text-dark"><a href="?page=shop-single">Rhinogrippe</a></h3>
-                <p class="price">2650Fcfa</p>
-              </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <span class="onsale">Sale</span>
-                <a href="?page=shop-single"> <img src="assets/images/product_02.jpeg" alt="Image"></a>
-                <h3 class="text-dark"><a href="?page=shop-single">Grippex</a></h3>
-                <p class="price">1825Fcfa</p>
-              </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <a href="shop-single.html"> <img src="assets/images/product_04.jpeg" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">Paracetamol 500mg</a></h3>
-                <p class="price">1000Fcfa</p>
-              </div>
-              
-
+              <?php foreach($medocs as $key =>$m): ?>
+                <?php if($key < 8): ?>
+                <div class="text-center item mb-4 item-v2">
+                  <span class="onsale">Sale</span>
+                  <a href="?page=shop-single&id=<?= $m->id ?>"> <img src="images/<?= $m->image ?>" alt="Image"></a>
+                  <h3 class="text-dark"><a href="?page=shop-single&id=<?= $m->id ?>"><?= ucfirst($m->nom) ?></a></h3>
+                  <p class="price"><?= $m->prix ?>fcfa</p>
+                </div>
+              <?php endif; ?>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>

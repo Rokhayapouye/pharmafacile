@@ -1,5 +1,8 @@
 <?php 
 
+$medocs = recupererTousMedicaments();
+
+
 require_once("includes/entete.php");
 
 

@@ -175,6 +175,19 @@ function ajoutMedicament($image, $nom, $prix,$disponibilite, $qtestock, $descrip
     }
 }
 
+function medicamentsSimilaires($idcategorie)
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM medicaments WHERE idcategorie =:idcategorie");
+        $q->execute(["idcategorie" => $idcategorie]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:" . $th->getMessage() . " à la ligne:" . __LINE__);
+    }
+}
+
 function recupererTousMedicaments()
 {
     global $db;
