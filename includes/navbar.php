@@ -29,22 +29,31 @@
                     <?php endforeach; ?>
                   </ul>
                 </li>
+                
+                
+                <li><a href="?page=contacts">Contacts</a></li>
                 <?php if(isset($_SESSION["user"])): ?>
-                <li><a href="?page=deconnexion">Deconnexion</a></li>
+                  <li class="has-children">
+                  <a href="?page=produits"><?= ucfirst($_SESSION["user"]->prenom) ?></a>
+                  <ul class="dropdown">
+                    <li><a href="?page=profilClient">Mon profil</a></li>
+                    <li><a href="?page=deconnexion">Deconnexion</a></li>
+                  </ul>
+                </li>
                 <?php else: ?>
                 <li><a href="?page=connexion">Connexion</a></li>
                 <?php endif; ?>
-                
-                <li><a href="?page=contacts">Contacts</a></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+            <?php if(isset($_SESSION["user"])): ?>
             <a href="?page=panier" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>
+            <?php endif; ?>
             <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
                 class="icon-menu"></span></a>
           </div>
