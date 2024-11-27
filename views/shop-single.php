@@ -25,6 +25,7 @@
 
             <p><strong class="text-primary h4"><?= $m->prix ?> FCFA</strong></p>
 
+            <?php if(isset($_SESSION["user"])): ?>
             
             <form action="" method="post">
               <div class="mb-5">
@@ -39,8 +40,9 @@
                   </div>
                 </div>
             </div>
-            <p><a href="?page=panier" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Ajouter au panier</a></p>
-            </form>
+            <p><button type="submit" name="addpanier" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Ajouter au panier</button></p>
+          </form>
+          <?php endif; ?>  
 
           </div>
         </div>
@@ -55,10 +57,11 @@
             <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
               
               <a href="?page=shop-single"> <img src="images/<?= $me->image ?>" alt="Image"></a>
-              <h3 class="text-dark"><a href="?page=shop-single"><?= $me->nom ?></a></h3>
+              <h3 class="text-dark"><a href="?page=shop-single&id=<?= $me->id ?>"><?= $me->nom ?></a></h3>
               <p class="price"><?= $me->prix ?>FCFA</p>
-              <p><a href="" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Ajouter au panier</a></p>
-
+              <?php if(isset($_SESSION["user"])): ?>
+              <p><a href="?page=shop-single&id=<?= $me->id ?>&add" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Ajouter au panier</a></p>
+              <?php endif; ?>
             </div>
           <?php endif; ?>  
         <?php endforeach; ?>  
