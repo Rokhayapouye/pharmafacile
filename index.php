@@ -41,6 +41,9 @@ if (isset($_GET["page"])) {
         case 'profil';
         require_once("controllers/profilController.php");
         break;
+        case 'profilClient';
+        require_once("controllers/profilClientController.php");
+        break;
         case 'deconnexion';
         require_once("controllers/deconnexionController.php");
         break;

@@ -11,8 +11,8 @@ if (isset($_POST["connecter"])) {
    if($user && password_verify($mdp, $user->mdp)) {
       $_SESSION["user"] = $user;
    
-      if(isset($user) && $user->role=="user"){
-         header("Location:?page=profil");
+      if(isset($user) && $user->role=="client"){
+         header("Location:?page=profilClient");
          exit();
       }
       
