@@ -194,7 +194,7 @@ function recupererTousMedicaments()
 {
     global $db;
     try {
-        $q = $db->prepare("SELECT m.image as image, m.nom as nom, prix, disponibilite, qtestock, description, peremption, c.nom as nomcategorie
+        $q = $db->prepare("SELECT m.id as id, m.image as image, m.nom as nom, prix, disponibilite, qtestock, description, peremption, c.nom as nomcategorie
                  FROM medicaments m, categories c
                 WHERE m.idcategorie = c.id");
         $q->execute();
@@ -259,6 +259,7 @@ function editMedicaments($id, $image, $nom, $prix, $disponibilite, $qtestock, $d
     }
 }
 
+<<<<<<< HEAD
   function avoirInfoUtilisateur($id){
       global $db;
     try {
@@ -269,3 +270,66 @@ function editMedicaments($id, $image, $nom, $prix, $disponibilite, $qtestock, $d
         die("Erreur:". $th->getMessage());
     }
 }
+=======
+function ajoutPanier($idmedicament, $nombre, $iduser, $total){
+    global $db;
+    try {
+        $q = $db->prepare("INSERT INTO panier VALUES(null, :idmedicament, :nombre, :iduser, :total)");
+        return $q->execute([
+            "idmedicament" => $idmedicament,
+            "nombre" => $nombre,
+            "iduser" => $iduser,
+            "total" => $total,
+        ]);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+
+function panierParIdMedicament($idmedicament){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM panier WHERE idmedicament =:idmedicament");
+        $q->execute([
+            "idmedicament" => $idmedicament
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+
+function panierUtilisateur($iduser){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT nom, nombre, m.image as image, m.prix as prix, total
+                FROM panier p, medicaments m
+                 WHERE p.idmedicament = m.id AND iduser =:iduser");
+        $q->execute([
+            "iduser" => $iduser
+        ]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+
+function montantPanier($iduser){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT sum(total) as somme
+                FROM panier p
+                 WHERE iduser =:iduser");
+        $q->execute([
+            "iduser" => $iduser
+        ]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
+
+>>>>>>> 41fc72a17568965cc1606179e69013e1fc7f0574

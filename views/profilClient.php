@@ -52,6 +52,7 @@
       <tr>
         <th>Reference</th>
         <th>Produits</th>
+        <th>Traitement</th>
         <th>Montant</th>
         <th>Statut</th>
 

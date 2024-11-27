@@ -6,6 +6,7 @@ if (isset($_GET["id"])) {
     header("Location:?page=home");
 }
 
+
 $medocs = medicamentsSimilaires($m->idcategorie);
 
 
