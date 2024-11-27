@@ -7,7 +7,7 @@ if (isset($_POST["ajouter"])) {
     extract($_POST);
     $img = $_FILES["image"]["tmp_name"];
     $img_name = uniqid()."jpg";
-    if (ajoutMedicament($img_name, $nom, $prix, $disponibilite, $qtestock, $description, $peremption)) {
+    if (ajoutMedicament($img_name, $nom, $prix, $disponibilite, $qtestock, $description, $peremption, $idcategorie)) {
      move_uploaded_file($img, "images/".$img_name);
      header("location:?page=medicaments");
     }
@@ -23,7 +23,7 @@ if (isset($_POST["ajouter"])) {
     }else{
         $img_name = $c->image;
     }
-    if (editMedicaments($_GET["id"], $img_name, $nom, $prix, $disponibilite, $qtestock, $description, $peremption)) {
+    if (editMedicaments($_GET["id"], $img_name, $nom, $prix, $disponibilite, $qtestock, $description, $peremption, $idcategorie)) {
      header("location:?page=medicaments");
     }
  }
@@ -35,6 +35,8 @@ if (isset($_POST["ajouter"])) {
     }
  }
 $medicaments = recupererTousMedicaments();
+$categories = recupererToutesCategories();
+
 
 
 require_once("includes/header.php");

@@ -17,6 +17,7 @@
                         <th>Quantité en Stock</th>
                         <th>Description</th>
                         <th>Date de Peremption</th>
+                        <th>Categorie</th>
                         <th>Actions</th>
 
                     </tr>
@@ -31,6 +32,8 @@
                             <td><?= $c->qtestock ?></td>
                             <td><?= $c->description ?></td>
                             <td><?= $c->peremption ?></td>
+                            <td><?= $c->idcategorie ?></td>
+
                             <td>
                                 <a href="?page=medicaments&type=edit&id=<?= $c->id?>" class="btn btn-primary">Editer</a>
                                 <a href="" data-bs-toggle="modal" data-bs-target="#my-modal<?= $c->id ?>" class="btn btn-danger">Supprimer</a>

@@ -156,10 +156,10 @@ function supprimerUneCategorie($id){
         die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
     }
 }
-function ajoutMedicament($image, $nom, $prix,$disponibilite, $qtestock, $description, $peremption){
+function ajoutMedicament($image, $nom, $prix,$disponibilite, $qtestock, $description, $peremption, $idcategorie){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO medicaments VALUES (null, :image, :nom, :prix, :disponibilite, :qtestock, :description, :peremption)");
+        $q = $db->prepare("INSERT INTO medicaments VALUES (null, :image, :nom, :prix, :disponibilite, :qtestock, :description, :peremption, :idcategorie)");
         return $q->execute([
             "image" => $image,
             "nom" => $nom,
@@ -167,7 +167,9 @@ function ajoutMedicament($image, $nom, $prix,$disponibilite, $qtestock, $descrip
             "disponibilite" => $disponibilite,
             "qtestock" => $qtestock,
             "description" => $description,
-             "peremption" => $peremption,
+            "peremption" => $peremption,
+            "idcategorie" => $idcategorie,
+
 
         ]);
     } catch (PDOException $th) {
