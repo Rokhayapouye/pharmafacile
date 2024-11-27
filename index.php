@@ -38,7 +38,10 @@ if (isset($_GET["page"])) {
         case 'about';
         require_once("controllers/aboutController.php");
         break;
-        case 'profil';
+        case 'profilUser';
+        require_once("controllers/profilUserController.php");
+        break;
+        case 'profilAdmin';
         require_once("controllers/profilController.php");
         break;
         case 'deconnexion';

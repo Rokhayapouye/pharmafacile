@@ -32,7 +32,7 @@
                             <td><?= $c->qtestock ?></td>
                             <td><?= $c->description ?></td>
                             <td><?= $c->peremption ?></td>
-                            <td><?= $c->idcategorie ?></td>
+                            <td><?= $c->nomcategorie ?></td>
 
                             <td>
                                 <a href="?page=medicaments&type=edit&id=<?= $c->id?>" class="btn btn-primary">Editer</a>

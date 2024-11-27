@@ -35,7 +35,7 @@
             </div>
             
         </div>
-        <button type="submit" class="btn btn-success mt-3 r" name="inscrire">Creer</button>
+        <a href="?page=profilUser"  class="btn btn-success mt-3 r" name="inscrire">Creer</a>
         <a href="?page=connexion" class="mt-3 btn btn-success">Connexion</a>
     </form>
 </div>

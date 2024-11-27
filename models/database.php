@@ -194,7 +194,9 @@ function recupererTousMedicaments()
 {
     global $db;
     try {
-        $q = $db->prepare("SELECT * FROM medicaments ORDER BY id DESC");
+        $q = $db->prepare("SELECT m.image as image, m.nom as nom, prix, disponibilite, qtestock, description, peremption, c.nom as nomcategorie
+                 FROM medicaments m, categories c
+                WHERE m.idcategorie = c.id");
         $q->execute();
 
         return $q->fetchAll(PDO::FETCH_OBJ);
