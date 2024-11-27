@@ -259,3 +259,13 @@ function editMedicaments($id, $image, $nom, $prix, $disponibilite, $qtestock, $d
     }
 }
 
+  function avoirInfoUtilisateur($id){
+      global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM users WHERE id =:id");
+        $q ->execute(["id" =>$id]);
+        return $q->fetch(PDO::FETCH_OBJ);
+    }catch (PDOException $th) {
+        die("Erreur:". $th->getMessage());
+    }
+}
