@@ -3,7 +3,7 @@
 session_start();
 require_once("models/database.php");
 
-
+$cats = recupererToutesCategories();
 
 
 if (isset($_GET["page"])) {

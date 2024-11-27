@@ -24,11 +24,9 @@
                 <li class="has-children">
                   <a href="?page=produits">Produits</a>
                   <ul class="dropdown">
-                    <li><a href="?page=bienetre">Santé &amp; Bien Etre</a></li>
-                    <li><a href="?page=maternite">Maternité &amp; Bébé</a></li>
-                    <li><a href="?page=poids">Produits pour Gestion du Poids</a></li>
-                    <li><a href="?page=materiel">Materiel Medical & Dispositif de Santé  </a></li>
-                    
+                    <?php foreach($cats as $c): ?>
+                    <li><a href="?page=bienetre"><?= $c->nom ?></a></li>
+                    <?php endforeach; ?>
                   </ul>
                 </li>
                 <?php if(isset($_SESSION["user"])): ?>
