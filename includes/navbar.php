@@ -25,7 +25,7 @@
                   <a href="?page=produits">Produits</a>
                   <ul class="dropdown">
                     <?php foreach($cats as $c): ?>
-                    <li><a href="?page=bienetre"><?= $c->nom ?></a></li>
+                    <li><a href="?page=singlecategory&id=<?= $c->id ?>"><?= $c->nom ?></a></li>
                     <?php endforeach; ?>
                   </ul>
                 </li>
