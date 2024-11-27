@@ -1,6 +1,17 @@
 <?php 
-require_once("includes/entete.php");
+require_once("includes/header.php");
 
-require_once("views/profil.php");
+require_once("views/profilAdmin.php");
 
-require_once("includes/pied.php");
+
+
+
+
+
+
+
+
+
+
+
+require_once("includes/footer.php");

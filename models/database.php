@@ -223,4 +223,22 @@ function editCategorie($id, $nom, $image){
         die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
     }
 }
+function editMedicaments($id, $image, $nom, $prix, $disponibilite, $qtestock, $description, $peremption){
+    global $db;
+    try {
+        $q = $db->prepare("UPDATE medicaments SET image =:image, nom =:nom, prix =:prix, disponibilite =:disponibilite, qtestock =:qtestock, description =:description, peremption =:peremption WHERE id=:id");
+        return $q->execute([
+            "id" => $id,
+            "image" => $image,
+            "nom" => $nom,
+            "prix" => $prix,
+            "disponibilite" => $disponibilite,
+            "qtestock" => $qtestock,
+            "description" => $description,
+            "peremption" => $peremption,
+        ]);
+    } catch (PDOException $th) {
+        die("Erreur:". $th->getMessage(). " à la ligne:". __LINE__);
+    }
+}
 

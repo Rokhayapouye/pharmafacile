@@ -123,8 +123,7 @@
         <div class="row justify-content-center text-center">
          <div class="col-lg-7">
            <h3 class="text-white">Nos Conseils Santé</h3>
-           <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam.</p>
-           <p class="mb-0"><a href="#" class="btn btn-outline-white">Sign up</a></p>
+           <p class="text-white">Porter un masque pour eviter d'être contaminer par la grippe</p>
          </div>
         </div>
       </div>

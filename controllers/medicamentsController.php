@@ -12,6 +12,21 @@ if (isset($_POST["ajouter"])) {
      header("location:?page=medicaments");
     }
  }
+ if (isset($_POST["modifier"])) {
+    extract($_POST);
+    $c = recupererUnMedicament($_GET["id"]);
+
+    if ($_FILES["image"]["size"] > 0) {
+        $img = $_FILES["image"]["tmp_name"];
+        $img_name = uniqid()."jpg";
+        move_uploaded_file($img, "images/".$img_name);
+    }else{
+        $img_name = $c->image;
+    }
+    if (editMedicaments($_GET["id"], $img_name, $nom, $prix, $disponibilite, $qtestock, $description, $peremption)) {
+     header("location:?page=medicaments");
+    }
+ }
  
  if (isset($_GET["idmedicament"])) {
     if (supprimerUnMedicament($_GET["idmedicament"])) {

@@ -54,6 +54,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="?page=profil" aria-expanded="false">
+                        <span>
+                            <i class="icon ti ti-users"style="font-size: 1.5rem;"></i>
+                        </span>
+                        <span class="hide-menu">Profil</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="?page=deconnexion" aria-expanded="false">
                         <span>
                             <!-- <i class="icon ti ti-logout "style="font-size: 1.5rem;"></i> -->

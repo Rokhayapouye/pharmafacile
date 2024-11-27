@@ -9,31 +9,31 @@
         <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control" name="image" required>
+                <input type="file" class="form-control" name="image"  <?= isset($c) ? "" : 'required' ?>  >
             </div>
             <div class="form-group">
                 <label for="">Nom</label>
-                <input type="text" class="form-control" name="nom" required>
+                <input type="text" value="<?= isset($c) ? $c->nom : '' ?>"  class="form-control" name="nom" required>
             </div>
             
             <div class="form-group">
                 <label for="">Prix</label>
-                <input type="number" class="form-control" name="prix" required>
+                <input type="number" value="<?= isset($c) ? $c->prix : '' ?>"  class="form-control" name="prix" required>
             </div><div class="form-group">
                 <label for="">Disponibilité</label>
-                <input type="text" class="form-control" name="disponibilite" required>
+                <input type="text" value="<?= isset($c) ? $c->disponibilite : '' ?>"  class="form-control" name="disponibilite" required>
             </div><div class="form-group">
                 <label for="">Qtestock</label>
-                <input type="number" class="form-control" name="qtestock" required>
+                <input type="number" value="<?= isset($c) ? $c->qtestock : '' ?>"  class="form-control" name="qtestock" required>
             </div><div class="form-group">
                 <label for="">Description</label>
-                <input type="text" class="form-control" name="description" required>
+                <input type="text" value="<?= isset($c) ? $c->description : '' ?>"  class="form-control" name="description" required>
             </div><div class="form-group">
                 <label for="">Peremption</label>
-                <input type="date" class="form-control" name="peremption" required>
+                <input type="date" value="<?= isset($c) ? $c->peremption : '' ?>"  class="form-control" name="peremption" required>
             </div>
             <?php if(isset($c)): ?>
-                <button type="submit" name="modifier" class="btn mt-3 btn-warning-success">Modifier</button>
+                <button type="submit" name="modifier" class="btn mt-3 btn-warning">Modifier</button>
             <?php else: ?>
                 <button type="submit" name="ajouter" class="btn mt-3 btn-outline-success">Ajouter</button>
             <?php endif; ?>
