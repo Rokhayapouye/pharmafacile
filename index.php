@@ -29,8 +29,8 @@ if (isset($_GET["page"])) {
         case 'produits';
         require_once("controllers/produitsController.php");
         break;
-        case 'vitamine';
-        require_once("controllers/vitamineController.php");
+        case 'singlecategory';
+        require_once("controllers/singlecategoryController.php");
         break;
         case 'contacts';
         require_once("controllers/contactsController.php");
